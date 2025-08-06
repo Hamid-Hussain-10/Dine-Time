@@ -18,7 +18,7 @@ export default function Signup() {
   const handleSignUp = (values) => {
     console.log("Form Data:", values);
     // TODO: Perform actual sign-up logic here
-    router.push("/home");
+    router.push("/signin");
   };
 
   return (
