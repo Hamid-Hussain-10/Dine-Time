@@ -7,13 +7,13 @@ import {
   SafeAreaView,
   StatusBar,
 } from "react-native";
-
+import Home from './(tabs)/home'
 export default function Index() {
   return (
     <SafeAreaView className="flex-1 bg-[#2b2b2b]">
       <StatusBar barStyle="light-content" backgroundColor="#2b2b2b" />
 
-      <View className="flex-1 justify-evenly items-center py-10 px-4">
+      {/* <View className="flex-1 justify-evenly items-center py-10 px-4">
         <Image
           source={require("../assets/images/dinetimelogo.png")}
           style={{
@@ -45,7 +45,8 @@ export default function Index() {
             height: 90,
           }}
         />
-      </View>
+      </View> */}
+      <Home/>
     </SafeAreaView>
   );
 }

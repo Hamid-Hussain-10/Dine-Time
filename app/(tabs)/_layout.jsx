@@ -9,7 +9,7 @@ export default function TabLayout() {
 
       <Tabs
         screenOptions={{
-          headerShown: true,
+          headerShown: false,
           headerStyle: {
             backgroundColor: '#171717',
           },
