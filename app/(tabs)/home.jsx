@@ -14,17 +14,29 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { BlurView } from "expo-blur";
 import logo from "../../assets/images/dinetimelogo.png";
 import banner from "../../assets/images/homeBanner.png";
-import { restaurants } from "../../store/restaurants";
-import { useEffect } from "react";
-import uploadData from "../../config/bulkupload";
+import { useEffect, useState } from "react";
+import { db } from "../../config/firebaseConfig";
+import { collection, query, getDocs } from "firebase/firestore";
+// import { restaurants } from "../../store/restaurants";
 
 export default function Home() {
-  useEffect(() => {
-    uploadData();
-  }, []);
+  const [restaurants, setRestaurants] = useState([]);
 
   const router = useRouter();
   const bottomPadding = Platform.OS === "android" ? 55 : 20;
+
+  const getRestaurants = async () => {
+    const q = query(collection(db, "restaurant"));
+    const result = await getDocs(q);
+
+    result.forEach((item) => {
+      setRestaurants((prev) => [...prev, item.data()]);
+    });
+  };
+
+  useEffect(() => {
+    getRestaurants();
+  }, []);
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
