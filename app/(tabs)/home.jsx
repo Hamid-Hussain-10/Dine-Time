@@ -40,20 +40,32 @@ export default function Home() {
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
-      onPress={() => router.push(`/restaurant/${item.name}`)}
-      className="bg-[#da8f40] max-h-64 max-w-xs rounded-xl p-3 mx-2 shadow-md"
-    >
-      <Image
-        resizeMode="cover"
-        source={{ uri: item.image }}
-        className="h-28 mb-2 rounded-lg"
-      />
-      <Text className="text-white text-lg font-bold">{item.name}</Text>
-      <Text className="text-white text-base">{item.address}</Text>
-      <Text className="text-white text-base">
-        Open: {item.opening} - Close: {item.closing}
-      </Text>
-    </TouchableOpacity>
+  onPress={() =>
+    router.push({
+      pathname: "/restaurant/[id]",
+      params: {
+        name: item.name,
+        image: item.image,
+        address: item.address,
+        opening: item.opening,
+        closing: item.closing,
+      },
+    })
+  }
+  className="bg-[#da8f40] max-h-64 max-w-xs rounded-xl p-3 mx-2 shadow-md"
+>
+  <Image
+    resizeMode="cover"
+    source={{ uri: item.image }}
+    className="h-28 mb-2 rounded-lg"
+  />
+  <Text className="text-white text-lg font-bold">{item.name}</Text>
+  <Text className="text-white text-base">{item.address}</Text>
+  <Text className="text-white text-base">
+    Open: {item.opening} - Close: {item.closing}
+  </Text>
+</TouchableOpacity>
+
   );
 
   const Section = ({ title, color }) => (

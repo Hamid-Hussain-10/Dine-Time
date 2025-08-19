@@ -90,7 +90,7 @@ export default function Signup() {
 
                     <TouchableOpacity
                       onPress={handleSubmit}
-                      className="bg-[#f49b33] px-6 py-3 mt-2 rounded-full shadow-lg border-2 border-white border-dotted items-center self-center"
+                      className="bg-[#f49b33] px-6 py-3 mt-2 rounded-full shadow-lg items-center self-center"
                     >
                       <Text className="text-black font-bold text-lg">
                         Sign In
