@@ -4,19 +4,17 @@ import { useLocalSearchParams } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
 
 export default function Rrestaurant() {
-  const { name, image, address, opening, closing, history } =
+  const { name, image, address, opening, closing } =
     useLocalSearchParams();
 
   return (
     <SafeAreaView style={{ backgroundColor: "#2b2b2b", flex: 1 }}>
       <ScrollView className="h-full px-4 py-3">
-        {/* Title Section */}
         <Text className="text-3xl text-[#f49b33] font-extrabold mb-2">
           {name}
         </Text>
         <View className="border-b border-[#f49b33] mb-4" />
 
-        {/* Image Section */}
         <View className="rounded-2xl overflow-hidden shadow-lg mb-4">
           <Image
             source={{ uri: image }}
@@ -42,9 +40,7 @@ export default function Rrestaurant() {
             Our Story
           </Text>
           <Text className="text-white text-base leading-6">
-            {history
-              ? history
-              : "Founded in 2005, this restaurant has been serving delicious meals with love and passion. Our mission is to bring families and friends together over food, offering both traditional and modern cuisines prepared with the freshest ingredients."}
+            Founded in 2005, this restaurant has been serving delicious meals with love and passion. Our mission is to bring families and friends together over food, offering both traditional and modern cuisines prepared with the freshest ingredients.
           </Text>
         </View>
 
